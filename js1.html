@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Open Console to see the answer!!</h1>
+    <script>
+        function reverse(n){
+            let x=n;
+            let sum=0;
+            while(x !=0){
+                let r=x%10;
+                sum=sum*10+r;
+                x=Math.floor(x/10);
+            }
+            console.log("The number "+n+" after reversing is "+sum) //876543
+        }
+        let num=prompt("Enter a number:") //345678
+        num=parseInt(num)
+        reverse(num)
+    </script>
+</body>
+</html>

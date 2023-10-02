@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+        }
+         .text{
+        width: 99%;
+        
+      }
+       .label{
+        text-align: right;
+      }
+      table,td{
+        border-spacing: 0px;
+      }
+      #approval{
+        border: 2px solid;
+      }
+      #last{
+        text-align: right;
+      }
+      #ethnus{
+        color: rgb(142, 3, 142);
+      }
+      .btn{
+        margin-top: 20px;
+    margin-right: 50%;
+    margin-left: 50%;
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+      }
+      h1{
+        text-align: center;
+        margin: 0px;
+        color: blue;
+      }
+      #form{
+        border-collapse:separate;
+            border-spacing:0 15px;
+        
+      }
+      .inp-control input:focus{
+        border-radius: 25px;
+        outline: 0;
+      }
+      .inp-control.success input{
+        
+        border-color: green;
+      }
+      .inp-control .error input{
+        
+        border-color: green;
+      }
+      .inp-control .error{
+        color: red;
+      }
+      /* .error{
+        float: right;
+      } */
+
+    </style>
+</head>
+<body>
+    <form method="" action="" name="myform" onsubmit="return validateInputs()">
+      <table id="form"  align="center" width="800">
+        <h1 >Registration form</h1>
+        
+        <tr class="inp-control">
+          <th class="label">First Name</th>
+          
+          <td><input id="fname" name="fname" class="text" type="text"  required/> 
+            <span class="error"></span> </td>
+          
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Last Name</th>
+          <td><input id="lname" class="text" type="text" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Email</th>
+          <td><input id="email" class="text" type="email" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Password</th>
+          <td><input id="pswd" class="text" type="password" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Re-enter Password</th>
+          <td><input id="repswd" class="text" type="password" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr>
+          <th class="label">Gender</th>
+          <td>
+            <input type="radio" name="Gender" />Male
+            <br>
+            <input type="radio" name="Gender" />Female 
+          </td>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Age</th>
+          <td><input id="age" class="text" type="text" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Phone Number</th>
+          <td><input id="number" class="text" type="text" /></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+          <th class="label">Address</th>
+          <td><textarea id="address" class="text" rows="8" cols="70"></textarea></td>
+          <div class="error"></div>
+        </tr>
+        <tr class="inp-control">
+            <th class="label">State</th>
+            <td><input id="state" class="text" type="text" /></td>
+            <div class="error"></div>
+          </tr>
+          <tr class="inp-control">
+            <th class="label">Country</th>
+            <td>
+              <select name="country">
+                <option value="" selected="selected" disabled="disabled">
+                  Choose your country
+                </option>
+                <option value="1">India</option>
+                <option value="2">Pakistan</option>
+                <option value="3">China</option>
+                <option value="4">Japan</option>
+                <option value="5">US</option>
+              </select>
+            </td>
+          </tr>
+        <tr>
+          <th class="label">Languages Known</th>
+          <td>
+            <input type="checkbox" name="x[]" value="h" />English
+            <input type="checkbox" name="x[]" value="h" />Kannada
+            <input type="checkbox" name="x[]" value="h" />Hindi
+            <input type="checkbox" name="x[]" value="h" />Telugu
+          </td>
+        </tr>
+        <tr> <td colspan="2">
+          <input  type="checkbox" />Hereby I declare all the given details are true
+          </td> </tr>
+          <tr> <td id="last" colspan="2">
+            Log in to <a id="ethnus" href=""> Ethnus </a>Website
+            </td> </tr>
+      </table>
+      
+      <button type="submit" class="btn">REGISTER</button>
+    </form>
+</body>
+<script>
+// const form=document.getElementById("form");
+// const fname=document.getElementById("fname");
+// const lname=document.getElementById("lname")
+// const email=document.getElementById("email");
+// const pswd=document.getElementById("pswd");
+// const repswd=document.getElementById("repswd");
+// const age=document.getElementById("age");
+// const number=document.getElementById("number");
+// const address=document.getElementById("address");
+// const state=document.getElementById("state");
+
+
+
+// form.addEventListener('submit',e=>{
+//   e.preventDefault();
+//   validateInputs();
+
+// });
+// const setError =(element,message)=>{
+//   // const inpControl=element.parentElement;
+//   // const errDisplay =inpControl.querySelector('.error')
+//   ele=document.getElementById(id);
+//   ele.getElementByClassName('error')[0].innerHTML=message;
+
+//   // errDisplay.innerHTML = message;
+//   inpControl.classList.add('error');
+//   inpControl.classList.remove('success')
+// }
+// const setSuccess = element =>{
+//   const inpControl=element.parentElement;
+//   const errDisplay =inpControl.querySelector('.error')
+
+//   errDisplay.innerText = '';
+//   inpControl.classList.add('success');
+//   inpControl.classList.remove('error');
+
+// }
+// const isValidEmail = email =>{
+//   const re=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+//   return re.test(String(email).toLowerCase());
+// }
+// const validateInputs =()=>{
+//   // const fnameVal =fname.value.trim();
+//   var returnVal=true;
+//   const fnameVal = document.forms['myform']["fname"].value;
+//   console.log(fnameVal)
+//   const lnameVal =lname.value.trim();
+//   const emailVal=email.value.trim();
+//   const pswdVal=pswd.value.trim();
+//   const repswdVal= repswd.value.trim();
+//   const ageVal=age.value.trim();
+//   const numVal = number.value.trim();
+//   const addrVal = address.value.trim();
+//   const stateVal= state.value.trim();
+//   return returnVal;
+
+
+//   if(fnameVal===''){
+//     setError(fname,"Poor");
+
+//   }else{
+//     setSuccess(fname);
+//   }
+
+//   if(lnameVal===''){
+//     setError(lname,"Poor")
+//   }
+//   else{
+//     setSuccess(lname)
+//   }
+
+//   if(emailVal===''){
+//     setError(email,'Poor')
+//   }
+//   else if(!isValidEmail(emailVal)){
+//     setError(email,'Poor')
+//   }
+//   else{
+//     setSuccess(email)
+//   }
+//   if(pswdVal===''){
+//     setError(pswd,"Poor")
+//   }
+
+// }
+
+    function validateInputs() {
+        var valid = true; // Assume all inputs are valid initially
+
+        // Get all the input elements
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+        var email = document.getElementById("email");
+        var pswd = document.getElementById("pswd");
+        var repswd = document.getElementById("repswd");
+        var age = document.getElementById("age");
+        var number = document.getElementById("number");
+        var address = document.getElementById("address");
+        var state = document.getElementById("state");
+
+        // Reset the error messages
+        var errorElements = document.querySelectorAll(".error");
+        for (var i = 0; i < errorElements.length; i++) {
+            errorElements[i].textContent = "";
+        }
+
+        // Validate First Name
+        if (fname.value.trim() === "") {
+            valid = false;
+            document.querySelector("#fname + .inp-control .error").textContent = "First Name is required";
+        }
+
+        // Validate Email
+        if (email.value.trim() === "") {
+            valid = false;
+            document.querySelector("#email + .inp-control .error").textContent = "Email is required";
+        } else {
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email.value.trim())) {
+                valid = false;
+                document.querySelector("#email + .inp-control .error").textContent = "Invalid email format";
+            }
+        }
+
+        // Validate Password
+        if (pswd.value.trim() === "") {
+            valid = false;
+            document.querySelector("#pswd + .inp-control .error").textContent = "Password is required";
+        }
+
+        // Validate Re-enter Password
+        if (repswd.value.trim() === "") {
+            valid = false;
+            document.querySelector("#repswd + .inp-control .error").textContent = "Please re-enter your password";
+        } else if (pswd.value.trim() !== repswd.value.trim()) {
+            valid = false;
+            document.querySelector("#repswd + .inp-control .error").textContent = "Passwords do not match";
+        }
+
+        // Validate Age (Assuming age is a number)
+        if (isNaN(age.value.trim())) {
+            valid = false;
+            document.querySelector("#age + .inp-control .error").textContent = "Age must be a number";
+        }
+
+        // Validate Phone Number (Assuming phone number is a number)
+        if (isNaN(number.value.trim())) {
+            valid = false;
+            document.querySelector("#number + .inp-control .error").textContent = "Phone Number must be a number";
+        }
+
+        // Validate Address
+        if (address.value.trim() === "") {
+            valid = false;
+            document.querySelector("#address + .inp-control .error").textContent = "Address is required";
+        }
+
+        // Validate State
+        if (state.value.trim() === "") {
+            valid = false;
+            document.querySelector("#state + .inp-control .error").textContent = "State is required";
+        }
+
+        // If all inputs are valid, the form will be submitted; otherwise, prevent submission
+        return valid;
+    }
+
+
+
+</script>
+</html>

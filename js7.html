@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        /* width: 100px;
+        height: 100px; */
+        /* background: url("https://clipground.com/images/locomotive-train-clip-art-3.png"); */
+        position: relative;
+        animation: mymove 2s infinite;
+        animation-play-state: paused;
+      }
+      .image {
+        height: 300px;
+        max-width: 200px;
+      }
+
+      @keyframes mymove {
+        from {
+          left: 0px;
+        }
+        to {
+          left: 800px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="myDIV">
+        <img
+          class="image"
+          src="https://clipground.com/images/locomotive-train-clip-art-3.png"
+          alt=""
+        />
+      </div>
+      <h1 style="color: rgb(0, 0, 149);">Click the following buttons to handle animation</h1>
+    </div>
+    <button onclick="myPlayFunction()">Start</button>
+    <button onclick="myPauseFunction()">Stop</button>
+
+    <script>
+      function myPlayFunction() {
+        document.getElementById("myDIV").style.animationPlayState = "running";
+      }
+      function myPauseFunction() {
+        document.getElementById("myDIV").style.animationPlayState = "paused";
+      }
+    </script>
+  </body>
+</html>

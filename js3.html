@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 2px solid;
+            width: 600px;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0px;
+            margin: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tbody><tr>
+              <th>1st Number :</th>
+              <td><input id="first" type="text" ></td>
+            </tr>
+            <tr>
+              <th>2nd Number:</th>
+              <td><input id="second" type="text" ></td>
+            </tr>
+            
+            <tr>
+              <th colspan="2">
+                <input id="multiply" type="submit" value="Multiply">
+              <input id="divide" type="submit" value="Divide">
+            </th>
+
+            </tr>
+            <tr>
+                <th>The result Is: </th>
+                <td></td>
+              </tr>
+
+          </tbody></table> 
+          <div id="answer"></div>
+    </div>
+    <script>
+       multiply.addEventListener("click",(e)=>{
+            e.preventDefault()
+            
+            let a=first.value
+            let b=second.value
+            localStorage.setItem("multiply",[a,b])
+            console.log(e)
+            res=a*b
+            console.log(res)
+            answer.innerHTML=`
+            <h4>${res}</h4>`
+
+            title.value=""
+            desc.value=""
+        })
+        divide.addEventListener("click",(e)=>{
+            e.preventDefault()
+            
+            let a=first.value
+            let b=second.value
+            localStorage.setItem("divide",[a,b])
+            console.log(e)
+            res=a/b
+            console.log(res)
+            answer.innerHTML=`
+            <p>${res}</p>`
+
+            title.value=""
+            desc.value=""
+        })
+    </script>
+</body>
+</html>

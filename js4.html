@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container{
+        border: 2px solid;
+      }
+      .dates {
+        /* border: 2px solid; */
+        padding: 40px;
+        font-size: 25px;
+        margin-bottom:10px ;
+      }
+      .times {
+        /* border: 2px solid; */
+        padding: 40px;
+        font-size: 25px;
+        margin-bottom:10px ;
+      }
+      .btn{
+        font-size: 22px;
+        padding: 5px 13px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dates">
+        <input class="btn" id="date" type="submit" value="Show Date" />
+        <div id="display1"></div>
+      </div>
+      <div class="times">
+        <input class="btn" id="time" type="submit" value="Show Time" />
+        <div id="display2"></div>
+      </div>
+    </div>
+    <script>
+      date.addEventListener("click", (e) => {
+       
+          let today = new Date();
+          let d=today.getDate();
+          let m=today.getMonth();
+          let mon=["January","February","March","April","May","June","July","August","September","October","November","December"]
+          let y=today.getFullYear();
+
+          display1.innerHTML =`
+          <p>${d}/${mon[m]}/${y}</p>`;
+        
+      })
+      
+      time.addEventListener("click", (e) => {
+        setInterval(() => {
+          let d = new Date();
+          display2.innerHTML = d;
+        }, 1000);
+      })
+
+    </script>
+  </body>
+</html>
